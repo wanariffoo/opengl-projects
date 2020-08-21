@@ -9,35 +9,36 @@ int main(int argc,char** argv)
 {
 
     // Initialize the glfw library
-    if (!glfwInit())
-        return -1;
+        if (!glfwInit())
+            return -1;
 
     // Create a window
-    GLFWwindow* window = glfwCreateWindow( 640, 480, "Hello World", NULL, NULL );
+        GLFWwindow* window = glfwCreateWindow( 640, 480, "Hello World", NULL, NULL );
 
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
-    }
+        if (!window)
+        {
+            glfwTerminate();
+            return -1;
+        }
 
     // Make the window's context current
-    glfwMakeContextCurrent(window);
+        glfwMakeContextCurrent(window);
 
     // Initiate GLEW
     // NOTE: GLEW can only be initiated after a valid rendering context
     
-    if ( glewInit() != GLEW_OK )    
-    {
-        cout << "Error" << endl;
-        return -1;
+        if ( glewInit() != GLEW_OK )    
+        {
+            cout << "Error" << endl;
+            return -1;
 
-    }
+        }
 
     // To check openGL version
-    cout << "OpenGL version: " << glGetString(GL_VERSION) << endl;
+        cout << "openGL version: " << glGetString(GL_VERSION) << endl;
 
 
+    //// Drawing a triangle with old openGL
     // Loop until user closes the window
     while ( !glfwWindowShouldClose(window) )
     {   
@@ -55,6 +56,6 @@ int main(int argc,char** argv)
         glfwPollEvents();
     }
 
-
+    glfwTerminate();
 	return 0;
 }
